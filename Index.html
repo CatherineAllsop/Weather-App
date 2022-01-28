@@ -19,6 +19,7 @@
     <title>Weather App</title>
   </head>
   <body>
+  <div class="weather-app-wrapper">  
     <img
       class="header-image"
       src="images/cloudy.jpg"
@@ -28,63 +29,63 @@
     <br />
     <div class="containter">
       <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-4">
           <h1 id="selected-city"></h1>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-8">
           <form class="city-search-form" id="city-search-form">
-            <span class="mb-3">
+            <span>
               <input
                 type="text"
-                class="location-input"
+                class="search-input"
                 id="search-input"
                 placeholder="Enter your location..."
                 autofocus= "on"
                 autocomplete="off"
               />
             </span>
-            <button type="submit" class="location-button">Search</button>
-            <span class="col-sm-1">
+            <button type="submit" class="location-button">🔍</button>
+            <span>
               <button class="current-location-button" id="current-location-button">📍</button>
             </span>
-          </form> <h6 class="search-value" id="search-value"></h6>
+          </form> <span id="search-value"></span>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-4"><h2>Today</h2></div>
-        <div class="col-sm-3"><h3 id="description"></h3></div>
-        <div class="col-sm-3"><h3>Humidity: <span id="humidity"></span>%</h3></div>
-        <div class="col-sm-2"><h3>Wind: <span id="wind"></span>km/h</h3></div>
+        <div class="col-sm-5 description"id="description"></div>
+        <div class="col-sm-3 weather-details">Humidity: <span id="humidity"></span>%</div>
+        <div class="col-sm-4 weather-details">Wind speed: <span id="wind"></span>km/h</div>
+        <div class="col-sm-4 last-updated">Last updated: <span id="date-today"></span></div>
       </div>
-      <div class="dateToday" id="date-today"></div>
       <div class="row">
-        <div class="col-sm today">
-          <h4 id="day-today">Mon</h4> <br />
-          <h5 class="temperature"> <span id="todays-temperature"></span>°c</h5> <br /><br />
-          <i class="fas fa-cloud weather-icons"></i>
+        <div class="col-sm weather-today-box">
+          <div class="todays-day" id="day-today">Mon</div>
+          <div class="todays-temp"> <span id="todays-temperature"></span>°c</div>
+          <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weather-icons" id="icons" />
         </div>
-        <div class="col-sm future-forecast day-tomorrow">
-          <h4>Tue</h4> <br />
-          <h6>0°c</h6> <br />
-          <i class="fas fa-cloud-sun weather-icons"></i>
+        <div class="col-sm future-forecast">
+          <div class="future-days">Day 2</div>
+          <div class="future-temps">0°c</div>
+          <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weather-icons" />
         </div>
-        <div class="col-sm future-forecast day-three">
-          <h4>Wed</h4> <br />
-          <h6>0°c</h6> <br />
-          <i class="fas fa-cloud-showers-heavy weather-icons"></i>
+        <div class="col-sm future-forecast">
+          <div class="future-days">Day 3</div>
+          <div class="future-temps">0°c</div>
+          <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weather-icons" />
         </div>
-        <div class="col-sm future-forecast day-four">
-          <h4>Thu</h4> <br />
-          <h6>0°c</h6> <br />
-          <i class="fas fa-sun weather-icons"></i>
+        <div class="col-sm future-forecast">
+          <div class="future-days">Day 4</div>
+          <div class="future-temps">0°c</div>
+          <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weather-icons" />
         </div>
-        <div class="col-sm future-forecast day-five">
-          <h4>Fri</h4> <br />
-          <h6>0°c</h6> <br />
-          <i class="far fa-snowflake weather-icons"></i>
+        <div class="col-sm future-forecast">
+          <div class="future-days">Day 5</div>
+          <div class="future-temps">0°c</div>
+          <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weather-icons" />
         </div>
       </div>
-    <p>📣 <em> Shades and a jacket kind of day!</em></p>
+    <div class="advice-comment">📣 <em> Shades and a jacket kind of day!</em></div>
+  </div>
     <div class="open-source"> <a href="https://github.com/CatherineAllsop/Weather-App.git" target="_blank">Open-source code</a> by Catherine Allsop</div>
     <script src="src/script.js"></script>
   </body>
