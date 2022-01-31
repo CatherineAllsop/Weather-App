@@ -23,9 +23,9 @@ search(city);
 function displayTemperature(response) {
   document.querySelector("h1").innerHTML = response.data.name;
   celsiusTemperature = response.data.main.temp;
-  document.querySelector("#todays-temperature").innerHTML = Math.round (celsiusTemperature);
-  document.querySelector("#wind").innerHTML = Math.round (response.data.wind.speed);
-  document.querySelector("#humidity").innerHTML = Math.round (response.data.main.humidity);
+  document.querySelector("#todays-temperature").innerHTML = Math.round(celsiusTemperature);
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+  document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
   let iconElement = document.querySelector("#icons");
   iconElement.setAttribute(
@@ -35,7 +35,7 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].main);
   let adviceComment = document.querySelector("#advice-comment");
   if (response.data.weather[0].main === `Clouds`) 
-  {adviceComment.innerHTML = `Shades and a jacket weather!`;}
+  {adviceComment.innerHTML = `A jacket and shades weather!`;}
     else if (response.data.weather[0].main  === `Rain`)
     {adviceComment.innerHTML = `Remember an umbrella!`;}
       if (response.data.weather[0].main  === `Snow`)
