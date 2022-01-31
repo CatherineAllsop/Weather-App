@@ -26,6 +26,21 @@ function displayTemperature(response) {
   document.querySelector("#wind").innerHTML = Math.round (response.data.wind.speed);
   document.querySelector("#humidity").innerHTML = Math.round (response.data.main.humidity);
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
+  let iconElement = document.querySelector("#icons");
+  iconElement.setAttribute(
+  "src", 
+  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].main);
+  let adviceComment = document.querySelector("#advice-comment");
+  if (response.data.weather[0].main === `Clouds`) 
+    {adviceComment.innerHTML = `Shades and a jacket kind of day!`;}
+    else if (response.data.weather[0].main  === `Rain`)
+    {adviceComment.innerHTML = `Remember an umbrella!`;}
+      if (response.data.weather[0].main  === `Snow`)
+      {adviceComment.innerHTML = `Wrap up warm!`;}
+      else if (response.data.weather[0].main  === `Clear`)
+      {adviceComment.innerHTML = `Remember your sunglasses!`;}
 }
 citySearchForm.addEventListener("submit", citySearch);
 
@@ -35,13 +50,6 @@ function search(city) {
   axios.get(apiUrl).then(displayTemperature);
 }
 search("London");
-
-let iconElement = document.querySelector("#icons");
-iconElement.setAttribute(
-  "src", 
-  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-iconElement.setAttribute("alt", response.data.weather[0].main);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
@@ -54,7 +62,4 @@ function searchLocation(position){
   let lon = position.coords.longitude;
   let apiKey = "540d7044742ae29f4d3c2d9968a739fd";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayTemperature);
-}
-
-
+  axios.get(apiUrl).then(displayTemperature);}
