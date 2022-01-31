@@ -22,7 +22,8 @@ search(city);
 }
 function displayTemperature(response) {
   document.querySelector("h1").innerHTML = response.data.name;
-  document.querySelector("#todays-temperature").innerHTML = Math.round (response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+  document.querySelector("#todays-temperature").innerHTML = Math.round (celsiusTemperature);
   document.querySelector("#wind").innerHTML = Math.round (response.data.wind.speed);
   document.querySelector("#humidity").innerHTML = Math.round (response.data.main.humidity);
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
@@ -34,13 +35,13 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].main);
   let adviceComment = document.querySelector("#advice-comment");
   if (response.data.weather[0].main === `Clouds`) 
-  {adviceComment.innerHTML = `Shades and a jacket needed today!`;}
+  {adviceComment.innerHTML = `Shades and a jacket weather!`;}
     else if (response.data.weather[0].main  === `Rain`)
     {adviceComment.innerHTML = `Remember an umbrella!`;}
       if (response.data.weather[0].main  === `Snow`)
       {adviceComment.innerHTML = `Wrap up warm!`;}
       else if (response.data.weather[0].main  === `Clear`)
-      {adviceComment.innerHTML = `Remember your sunglasses today!`;}
+      {adviceComment.innerHTML = `Remember your sunglasses!`;}
         if (response.data.weather[0].main  === `Fog`)
         {adviceComment.innerHTML = `Be careful out there!`;}
   let headerImage = document.querySelector("#header-image");
@@ -61,6 +62,28 @@ function displayTemperature(response) {
         headerImage.setAttribute("alt", "nighttime");}
 }
 citySearchForm.addEventListener("submit", citySearch);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+function displayFahrenheitTemperature(event){
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#todays-temperature");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  celsiusLink.classList.remove("active-unit");
+  fahrenheitLink.classList.add("active-unit");
+}
+
+let celsiusTemperature = null;
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+function displayCelsiusTemperature(event){
+event.preventDefault();
+let temperatureElement = document.querySelector("#todays-temperature");
+temperatureElement.innerHTML = Math.round(celsiusTemperature);
+celsiusLink.classList.add("active-unit");
+fahrenheitLink.classList.remove("active-unit");
+}
 
 function search(city) {
   let apiKey = "540d7044742ae29f4d3c2d9968a739fd";

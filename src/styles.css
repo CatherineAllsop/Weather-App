@@ -125,7 +125,16 @@ h1 {
 }
 .units {
   font-size: 18px;
-  top: -32px;
+}
+.active-unit{
+  color: #0a426d;
+  cursor: default;
+  text-decoration: none;
+}
+.active-unit:hover{
+  color: #0a426d;
+  cursor: default;
+  text-decoration: none;
 }
 .future-forecast {
   color: #1eb3a9;
