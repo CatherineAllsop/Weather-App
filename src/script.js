@@ -62,8 +62,6 @@ function displayTemperature(response) {
 }
 citySearchForm.addEventListener("submit", citySearch);
 
-
-
 function search(city) {
   let apiKey = "540d7044742ae29f4d3c2d9968a739fd";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
