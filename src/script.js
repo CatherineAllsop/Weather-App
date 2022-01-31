@@ -34,15 +34,35 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].main);
   let adviceComment = document.querySelector("#advice-comment");
   if (response.data.weather[0].main === `Clouds`) 
-    {adviceComment.innerHTML = `Shades and a jacket kind of day!`;}
+  {adviceComment.innerHTML = `Shades and a jacket needed today!`;}
     else if (response.data.weather[0].main  === `Rain`)
     {adviceComment.innerHTML = `Remember an umbrella!`;}
       if (response.data.weather[0].main  === `Snow`)
       {adviceComment.innerHTML = `Wrap up warm!`;}
       else if (response.data.weather[0].main  === `Clear`)
-      {adviceComment.innerHTML = `Remember your sunglasses!`;}
+      {adviceComment.innerHTML = `Remember your sunglasses today!`;}
+        if (response.data.weather[0].main  === `Fog`)
+        {adviceComment.innerHTML = `Be careful out there!`;}
+  let headerImage = document.querySelector("#header-image");
+  if (response.data.weather[0].main === `Clouds`)
+  {headerImage.setAttribute("src", "images/cloudy.png");
+  headerImage.setAttribute("alt", response.data.weather[0].main);}
+    else if (response.data.weather[0].main  === `Rain`)
+    {headerImage.setAttribute("src", "images/rain.png");
+    headerImage.setAttribute("alt", response.data.weather[0].main);}
+      if (response.data.weather[0].main  === `Snow`)
+      {headerImage.setAttribute("src", "images/snow.png");
+      headerImage.setAttribute("alt", response.data.weather[0].main);}
+      else if (response.data.weather[0].main  === `Clear`)
+      {headerImage.setAttribute("src", "images/sunny.png");
+      headerImage.setAttribute("alt", response.data.weather[0].main);}
+        if (response.data.weather[0].icon.includes(`n`)) 
+        {headerImage.setAttribute("src", "images/night.png");
+        headerImage.setAttribute("alt", "nighttime");}
 }
 citySearchForm.addEventListener("submit", citySearch);
+
+
 
 function search(city) {
   let apiKey = "540d7044742ae29f4d3c2d9968a739fd";

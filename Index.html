@@ -22,17 +22,18 @@
   <div class="weather-app-wrapper">  
     <img
       class="header-image"
-      src="images/cloudy.jpg"
+      id="header-image"
+      src="images/cloudy.png"
       alt="image of today's weather in your location"
       style="object-fit: cover"
     />
     <br />
     <div class="containter">
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-5">
           <h1 id="selected-city"></h1>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-7">
           <form class="city-search-form" id="city-search-form">
             <span>
               <input
@@ -60,8 +61,9 @@
       <div class="row">
         <div class="col-sm weather-today-box">
           <div class="todays-day" id="day-today">Mon</div>
-          <div class="todays-temp"> <span id="todays-temperature"></span>°c</div>
-          <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weather-icons" id="icons" />
+          <div class="todays-temp"> <span id="todays-temperature"></span>
+            <span class="units"><a href=""id="celsius">°c</a> | <a href=""id="fahrenheit">°f</a></span></div>
+          <img src="" alt="" class="weather-icons" id="icons" />
         </div>
         <div class="col-sm future-forecast">
           <div class="future-days">Day 2</div>
@@ -84,7 +86,7 @@
           <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weather-icons" />
         </div>
       </div>
-    <div class="advice-comment">📣 <em id="advice-comment"> </em></div>
+    <div class="advice-comment">📣 <em id="advice-comment">Have a lovely day! </em></div>
   </div>
   </div>
     <div class="open-source"> <a href="https://github.com/CatherineAllsop/Weather-App.git" target="_blank">Open-source code</a> by Catherine Allsop</div>
