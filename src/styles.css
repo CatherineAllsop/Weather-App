@@ -117,7 +117,6 @@ h1 {
 .todays-temp {
   color: #0a426d;
   font-size: 45px;
-  font-style: italic;
   font-weight: 800;
   margin: 0;
   padding-top: 17px;
@@ -137,7 +136,7 @@ h1 {
   cursor: default;
   text-decoration: none;
 }
-.future-forecast {
+.forecast {
   color: #1eb3a9;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -152,7 +151,6 @@ h1 {
 }
 .future-temps {
   font-size: 45px;
-  font-style: italic;
   font-weight: 800;
   margin: 0;
   padding-top: 17px;

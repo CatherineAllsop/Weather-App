@@ -2,7 +2,7 @@ function formatDate(){
    let now = new Date ();
    let dateToday = document.querySelector("#date-today");
    let dayToday = document.querySelector("#day-today");
-   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", ];
    let day = days[now.getDay()];
    let hours = now.getHours();
    if (hours < 10) {hours = `0${hours}`};
@@ -13,13 +13,13 @@ function formatDate(){
 }
 formatDate();
 
-
 let citySearchForm = document.querySelector("#city-search-form");
 function citySearch(event){
 event.preventDefault();
 let city = document.querySelector("#search-input").value;
 search(city);
 }
+
 function displayTemperature(response) {
   document.querySelector("h1").innerHTML = response.data.name;
   celsiusTemperature = response.data.main.temp;
@@ -63,6 +63,7 @@ function displayTemperature(response) {
 }
 citySearchForm.addEventListener("submit", citySearch);
 
+
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 function displayFahrenheitTemperature(event){
@@ -84,6 +85,24 @@ temperatureElement.innerHTML = Math.round(celsiusTemperature);
 celsiusLink.classList.add("active-unit");
 fahrenheitLink.classList.remove("active-unit");
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sun", "Mon", "Tue", "Wed"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function(day){
+    forecastHTML = forecastHTML + `
+    <div class="col-3">
+    <div class="future-days">${day}</div>
+    <div class="future-temps"><span>0</span><span class="units">°c | °f</span></div>
+    <img src="" alt="" class="weather-icons" />
+    </div>
+    `;
+  });
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();
 
 function search(city) {
   let apiKey = "540d7044742ae29f4d3c2d9968a739fd";
