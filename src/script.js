@@ -35,7 +35,7 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].main);
   let adviceComment = document.querySelector("#advice-comment");
   if (response.data.weather[0].main === `Clouds`) 
-  {adviceComment.innerHTML = `A jacket and shades weather!`;}
+  {adviceComment.innerHTML = `Jacket and shades weather!`;}
     else if (response.data.weather[0].main  === `Rain`)
     {adviceComment.innerHTML = `Remember an umbrella!`;}
       if (response.data.weather[0].main  === `Snow`)
@@ -109,9 +109,8 @@ function displayForecast(response) {
     forecastHTML += `
     <div class="col-3">
     <div class="future-days">${formatDay(forecastDay.dt)}</div>
-    ${index}
-    <div class="future-temps"><span>${Math.round(forecastDay.temp.day)}</span><span class="units">°c | °f</span></div>
-    <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" class="weather-icons" />
+    <div class="future-temps"><span>${Math.round(forecastDay.temp.day)}</span><span class="forecast-units">°c</span></div>
+    <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"/>
     </div>
     `;
     }
